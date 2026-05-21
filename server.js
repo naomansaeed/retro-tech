@@ -1,8 +1,6 @@
 import http from 'node:http';
-import fs from 'node:fs/promises';
-//import path from 'node:path';
-import { testPath } from './utils/testPath.js';
 import { serveStatic } from './utils/serveStatic.js';
+
 
 const PORT = 3001;
 
@@ -10,39 +8,22 @@ const __dirname = import.meta.dirname;
 
 const server = http.createServer(async (req,res) => {
 
-    const pathToResource = serveStatic(__dirname);
+     await serveStatic(req, res, __dirname);
 
-    const content = await fs.readFile(pathToResource, 'utf-8');
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type','text/html');
-    res.end(content);
-
-    //const pathToResource = path.join(__dirname, 'public', 'index.html');
-    //const output = `<html><h1>Server Up!</h1></html>`;
-    //testPath();
-    //console.log(`testPath: ${testPath()}`);
-    //console.log(serveStatic(__dirname));
-
-    
-
-    // Reads the contents of a static file synchronously.
-    //const content = fs.readFileSync(pathToResource,'utf-8');
-
-    //Such nested code can lead to callBack() hell
-  /*  fs.readFile(pathToResource, 'utf-8', (error, content) => {
-        if (error) {
-            console.log(error);
-            return;
-        }
-        res.statusCode = 200;
-        res.setHeader('Content-Type','text/html');
-        res.end(content);
-    }); */
-
-    //res.statusCode = 200;
-    //res.setHeader('Content-Type','text/html');
-    //res.end(content);
+   
+  
 });
 
 server.listen(PORT, () => console.log(`Listening at ${PORT}`));
+
+/*  try {
+        // 1️⃣ Get the absolute path to index.html
+        const pathToResource = serveStatic(__dirname);
+        // 2️⃣ Read file asynchronously as a Buffer
+        const content = //await fs.readFile(pathToResource);
+        
+        sendResponse(res, 200, 'text/html', content); 
+    } catch (error) {
+        // 3️⃣ Challenge requirement: Log the error in catch block
+        console.error('❌ Failed to read index.html:', error.message);
+    } */
