@@ -14,11 +14,25 @@ const server = http.createServer((req,res) => {
     //testPath();
     //console.log(`testPath: ${testPath()}`);
     //console.log(serveStatic(__dirname));
+
     const pathToResource = serveStatic(__dirname);
-    const content = fs.readFileSync(pathToResource,'utf-8');
-    res.statusCode = 200;
-    res.setHeader('Content-Type','text/html');
-    res.end(content);
+
+    // Reads the contents of a static file synchronously.
+    //const content = fs.readFileSync(pathToResource,'utf-8');
+
+    fs.readFile(pathToResource, 'utf-8', (error, content) => {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        res.statusCode = 200;
+        res.setHeader('Content-Type','text/html');
+        res.end(content);
+    })
+
+    //res.statusCode = 200;
+    //res.setHeader('Content-Type','text/html');
+    //res.end(content);
 });
 
 server.listen(PORT, () => console.log(`Listening at ${PORT}`));
