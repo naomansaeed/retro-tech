@@ -1,4 +1,5 @@
 import http from 'node:http';
+import fs from 'node:fs';
 //import path from 'node:path';
 import { testPath } from './utils/testPath.js';
 import { serveStatic } from './utils/serveStatic.js';
@@ -14,9 +15,10 @@ const server = http.createServer((req,res) => {
     //console.log(`testPath: ${testPath()}`);
     //console.log(serveStatic(__dirname));
     const pathToResource = serveStatic(__dirname);
+    const content = fs.readFileSync(pathToResource,'utf-8');
     res.statusCode = 200;
     res.setHeader('Content-Type','text/html');
-    res.end(pathToResource);
+    res.end(content);
 });
 
 server.listen(PORT, () => console.log(`Listening at ${PORT}`));
