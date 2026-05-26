@@ -7,12 +7,8 @@ const PORT = 3001;
 const __dirname = import.meta.dirname;
 
 const server = http.createServer(async (req,res) => {
-
      await serveStatic(req, res, __dirname);
-
-   
-  
-});
+  });
 
 server.listen(PORT, () => console.log(`Listening at ${PORT}`));
 
