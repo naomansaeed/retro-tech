@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "walkman-wm2",
+      "name": "SONY WALKMAN WM-2",
+      "price": 89.99,
+      "image": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=400&h=300&fit=crop",
+      "description": "The iconic 1981 portable cassette player. Lightweight, durable, and pure analog nostalgia."
+    },
+    {
+      "id": "polaroid-sx70",
+      "name": "POLAROID SX-70",
+      "price": 249.99,
+      "image": "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=400&h=300&fit=crop",
+      "description": "Foldable SLR instant camera from 1972. Capture memories with that unmistakable Polaroid look."
+    },
+    {
+      "id": "gameboy-dmg",
+      "name": "NINTENDO GAME BOY",
+      "price": 129.99,
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      "description": "The 1989 handheld that started it all. Tetris included. Batteries not included (but still worth it)."
+    }
+  ]
+}

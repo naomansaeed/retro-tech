@@ -21,12 +21,12 @@ const MIME_TYPES = {
   '.xml':  'application/xml'
 };
 
-/**
- * Returns the correct MIME type for a given file extension.
- * This is used by serveStatic.js to set the `Content-Type` HTTP header.
- * 
- * @param {string} ext - File extension including the dot (e.g., '.css', '.png')
- * @returns {string} The corresponding MIME type string
+/*
+  Returns the correct MIME type for a given file extension.
+  This is used by serveStatic.js to set the `Content-Type` HTTP header.
+  
+  @param {string} ext - File extension including the dot (e.g., '.css', '.png')
+  @returns {string} The corresponding MIME type string
  */
 export function getContentType(ext) {
   // path.extname() preserves the original casing, but HTTP/MIME specs are case-insensitive.
